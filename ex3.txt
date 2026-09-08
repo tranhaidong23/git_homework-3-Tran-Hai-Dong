@@ -1,0 +1,44 @@
+PART A:
+cd ~
+mkdir ex3
+cd ex3
+mkdir dir1 dir2
+touch HelloWorld.txt
+cp HelloWorld.txt dir1/
+cp -i HelloWorld.txt dir1/
+mv HelloWorld.txt Hi.txt
+mv Hi.txt dir2/
+
+PART B:
+ln dir2/Hi.txt Hi-hard
+ln dir2/Hi.txt dir1/Hi-hard
+ln dir2/Hi.txt dir2/Hi-hard
+ln -s dir2/Hi.txt Hi-sym
+rm Hi-hard
+rm dir2/Hi.txt
+rm dir2/Hi.txt
+ls -li  
+output: total 0
+57420895249058791 -rw-r--r-- 1 Admin 197121 0 Sep  8 22:47 Hi-sym
+24769797950829275 drwxr-xr-x 1 Admin 197121 0 Sep  8 22:53 dir1/
+ 9570149208462375 drwxr-xr-x 1 Admin 197121 0 Sep  8 22:54 dir2/
+
+PART C:
+ls /bin /usr/bin | sort -u | wc -l
+ls /bin /usr/bin | sort -u | grep "zip"
+seq 1 35 > sample.txt
+head -n 5 sample.txt
+tail -n 5 sample.txt
+wc sample.txt
+ls -la | tee full_listing.txt
+
+PART D:
+mkdir permissions
+cd permissions
+touch secret.txt shared.txt public.txt
+chmod 600 secret.txt
+chmod 664 shared.txt
+chmod 777 public.txt
+umask
+touch newfile.txt
+ls -l newfile.txt
